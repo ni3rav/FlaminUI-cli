@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-const { program } = require("commander");
-const fs = require("fs-extra");
-const path = require("path");
-const chalk = require("chalk");
-const { execSync } = require("child_process");
-const prompts = require("prompts");
+import chalk from 'chalk';
+import { program } from 'commander';
+import fs from 'fs-extra';
+import path from 'path';
+import { execSync } from 'child_process';
+import prompts from 'prompts';
+
 
 const requiredDependencies = [
   "framer-motion ",
@@ -120,7 +121,7 @@ program
     }
 
     // Fetch the component from your repository
-    const componentUrl = `https://raw.githubusercontent.com/your-username/flamin-ui/main/components/${component}.tsx`;
+    const componentUrl = `https://raw.githubusercontent.com/Vedant-Panchal/FlaminUI/main/components/${component}/${component}.tsx`;
     
     try {
       const response = await fetch(componentUrl);
