@@ -1,0 +1,18 @@
+{
+  "name": "flamin-ui",
+  "version": "1.0.0",
+  "bin": {
+    "flamin-ui": "./bin/flamin-ui.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "node-fetch": "^3.3.2",
+    "prompts": "^2.4.2"
+  }
+}
