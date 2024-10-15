@@ -1,14 +1,22 @@
 {
   "name": "flamin-ui",
-  "version": "1.0.0",
+  "version": "a.1.0",
+  "description": "CLI for FlaminUI",
+  "main": "bin/flamin-ui.js",
   "type": "module",
   "bin": {
     "flamin-ui": "./bin/flamin-ui.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
     "bin",
     "src"
   ],
+  "keywords": ["cli", "flamin-ui", "component-library", "react-components"],
+  "author": "Team FlaminUI",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
