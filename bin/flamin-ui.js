@@ -72,6 +72,38 @@ async function installDependencies() {
   }
 }
 
+async function copyTailwindConfig() {
+  const tailwindConfigPath = path.join(process.cwd(), "tailwind.config.ts");
+
+  // Create or overwrite the tailwind.config.ts file
+  const tailwindConfigContent = `
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
+  `;
+
+  fs.outputFileSync(tailwindConfigPath, tailwindConfigContent.trim());
+  console.log(chalk.green("✓ Created or overwritten tailwind.config.ts"));
+}
+
 async function copyUtilFile() {
   const utilSourcePath = path.join(path.resolve(__dirname), "../src/util.ts");
   const utilDestPath = path.join(process.cwd(), "lib", "util.ts");
@@ -96,7 +128,7 @@ async function copyUtilFile() {
 
 async function copyCNFile() {
   const cnSourcePath = path.join(path.resolve(__dirname), "../src/cn.ts");
-  const cnDestPath = path.join(process.cwd(),  "utils", "cn.ts");
+  const cnDestPath = path.join(process.cwd(), "utils", "cn.ts");
 
   if (fs.existsSync(cnDestPath)) {
     const { overwrite } = await prompts({
@@ -141,6 +173,9 @@ program
 
     // Copy cn.ts file
     await copyCNFile();
+
+    // Copy Tailwind config
+    await copyTailwindConfig();
 
     // Create components directory
     fs.ensureDirSync(path.join(process.cwd(), "lib", "components"));
