@@ -14,7 +14,12 @@
     "bin",
     "src"
   ],
-  "keywords": ["cli", "flamin-ui", "component-library", "react-components"],
+  "keywords": [
+    "cli",
+    "flamin-ui",
+    "component-library",
+    "react-components"
+  ],
   "author": "Team FlaminUI",
   "license": "MIT",
   "dependencies": {
