@@ -1,6 +1,6 @@
 {
   "name": "flamin-ui",
-  "version": "a.1.0",
+  "version": "1.0.0",
   "description": "CLI for FlaminUI",
   "main": "bin/flamin-ui.js",
   "type": "module",
